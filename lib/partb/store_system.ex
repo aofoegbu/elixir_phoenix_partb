@@ -37,7 +37,7 @@ defmodule Partb.StoreSystem do
 
   """
   def get_store!(id) do
-    :Repo.get!(Store, id)
+    Repo.get!(Store, id)
     |>Repo.preload(:products)
   end
 
@@ -137,8 +137,7 @@ defmodule Partb.StoreSystem do
 
   """
   def get_product!(id) do
-    :Repo.get!(Product, id)
-    |>Repo.preload(:stores)
+    Repo.get!(Product, id) |>Repo.preload(:stores)
   end
 
   @doc """

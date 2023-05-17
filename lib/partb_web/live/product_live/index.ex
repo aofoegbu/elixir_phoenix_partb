@@ -3,6 +3,7 @@ defmodule PartbWeb.ProductLive.Index do
 
   alias Partb.StoreSystem
   alias Partb.StoreSystem.Product
+  alias Partb.Repo
 
   @impl true
   def mount(_params, _session, socket) do
@@ -18,7 +19,7 @@ defmodule PartbWeb.ProductLive.Index do
     socket
     |> assign(:page_title, "Edit Product")
     |> assign(:product, StoreSystem.get_product!(id))
-    |> assign(:companies, StoreSystem.list_stores())
+    |> assign(:stores, StoreSystem.list_stores())
 
   end
 
@@ -26,7 +27,7 @@ defmodule PartbWeb.ProductLive.Index do
     socket
     |> assign(:page_title, "New Product")
     |> assign(:product, %Product{})
-    |> assign(:companies, StoreSystem.list_stores())
+    |> assign(:stores, StoreSystem.list_stores())
   end
 
   defp apply_action(socket, :index, _params) do

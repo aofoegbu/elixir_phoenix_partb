@@ -8,5 +8,7 @@ defmodule PartbWeb.EmployeeLive.Index do
     {:ok, stream(socket, :employees, StoreSystem.list_employees())}
   end
 
-  
+
 end
+
+
